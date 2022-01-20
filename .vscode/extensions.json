@@ -1,0 +1,15 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "EditorConfig.EditorConfig",
+    "dzannotti.vscode-babel-coloring",
+    "github.vscode-pull-request-github",
+    "eamodio.gitlens",
+    "formulahendry.auto-close-tag",
+    "bradlc.vscode-tailwindcss",
+    "vscode-icons-team.vscode-icons",
+    "eg2.vscode-npm-script",
+    "christian-kohler.npm-intellisense",
+    "dsznajder.es7-react-js-snippets"
+  ]
+}
