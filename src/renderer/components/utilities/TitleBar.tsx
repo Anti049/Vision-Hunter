@@ -11,7 +11,10 @@ import {
 } from '@mdi/js';
 
 // Prop definitions
-type Props = Record<string, never>;
+type Props = {
+  title: string;
+  maximized: boolean;
+};
 
 class TitleBar extends React.Component {
   constructor(props: Props) {
@@ -71,7 +74,10 @@ class TitleBar extends React.Component {
             type="button"
             className="hover:bg-navigation-hover items-center"
           >
-            <Icon path={mdiWindowMinimize} className="w-full h-full p-2" />
+            <Icon
+              path={mdiWindowMinimize}
+              className="w-[90%] h-[90%] p-2 m-auto"
+            />
           </button>
           <button
             id="btn-maximize"
@@ -80,15 +86,18 @@ class TitleBar extends React.Component {
           >
             <Icon
               path={maximized ? mdiWindowRestore : mdiWindowMaximize}
-              className="w-full h-full p-2"
+              className="w-[90%] h-[90%] p-2 m-auto"
             />
           </button>
           <button
             id="btn-close"
             type="button"
-            className="hover:bg-red items-center"
+            className="hover:bg-red items-center content-center"
           >
-            <Icon path={mdiWindowClose} className="w-full h-full p-2" />
+            <Icon
+              path={mdiWindowClose}
+              className="w-[90%] h-[90%] p-2 m-auto"
+            />
           </button>
         </div>
       </div>
