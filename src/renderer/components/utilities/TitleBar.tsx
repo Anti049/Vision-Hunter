@@ -61,14 +61,14 @@ class TitleBar extends React.Component {
         className="app-titlebar fixed flex items-center bg-titlebar pt-0"
       >
         <img
-          className="app-favicon flex-none pl-5 h-2/3"
+          className="app-favicon flex-none pl-5 h-2/3 mt-1"
           src={icon}
           alt="App Icon"
         />
         <div className="app-title pl-6 w-full text-center">
           <span className="text-white font-title">{title}</span>
         </div>
-        <div className="app-titlebuttons grid grid-cols-3 w-36 h-full text-white">
+        <div className="app-titlebuttons grid grid-cols-3 w-36 h-full text-white -mt-2">
           <button
             id="btn-minimize"
             type="button"
@@ -76,7 +76,7 @@ class TitleBar extends React.Component {
           >
             <Icon
               path={mdiWindowMinimize}
-              className="w-[90%] h-[90%] p-2 m-auto"
+              className="w-[90%] h-[90%] p-1.5 m-auto"
             />
           </button>
           <button
@@ -86,7 +86,7 @@ class TitleBar extends React.Component {
           >
             <Icon
               path={maximized ? mdiWindowRestore : mdiWindowMaximize}
-              className="w-[90%] h-[90%] p-2 m-auto"
+              className="w-[90%] h-[90%] p-1.5 m-auto"
             />
           </button>
           <button
@@ -96,7 +96,7 @@ class TitleBar extends React.Component {
           >
             <Icon
               path={mdiWindowClose}
-              className="w-[90%] h-[90%] p-2 m-auto"
+              className="w-[90%] h-[90%] p-1.5 m-auto"
             />
           </button>
         </div>

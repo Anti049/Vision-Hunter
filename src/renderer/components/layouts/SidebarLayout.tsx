@@ -37,14 +37,14 @@ const SidebarIcon = ({
       className={({ isActive }) =>
         mergeClassNames(
           isActive
-            ? 'bg-navigation'
+            ? 'bg-navigation rounded-xl'
             : 'opacity-60 hover:opacity-100 hover:bg-navigation-hover',
-          'sidebar-icon has-tooltip shadow-lg'
+          'sidebar-icon has-tooltip shadow-lg group'
         )
       }
     >
       <img src={icon} alt={icon} className="object-contain w-full h-full" />
-      <span className="tooltip z-20 left-16 text-right px-4 py-2 rounded-lg bg-background">
+      <span className="tooltip z-20 text-right rounded-lg bg-background group-hover:opacity-100">
         {title}
       </span>
     </NavLink>
@@ -100,24 +100,31 @@ const SidebarLayout: FC<React.ReactElement> = ({ children }) => {
       {/* Title bar */}
       <TitleBar />
       {/* Static sidebar for desktop */}
-      <div className="flex flex-1 flex-col overflow-y-auto overflow-x-visible fixed top-[40px] left-0 h-[calc(100vh-40px)] w-full m-0 z-10 text-white pointer-events-none">
-        <nav className="flex-1 px-2 space-y-2 overflow-x-visible w-16 bg-background pointer-events-auto">
-          {navigation.map((item) => (
+      <div className="sidebar">
+        <div className="mini-sidebar">
+          <div className="pt-0 p-2 pb-0 z-10 bottom-0 w-sidebar-mini pointer-events-auto">
             <SidebarIcon
-              key={item.title}
-              title={item.title}
-              icon={item.image}
-              link={item.link}
+              title="My Profile"
+              icon={PaimonImage}
+              link="/profile"
             />
-          ))}
-        </nav>
-        <div className="p-2 pb-1 z-10 bottom-0 w-16 pointer-events-auto">
-          <SidebarIcon title="My Profile" icon={PaimonImage} link="/profile" />
+          </div>
+          <div className="h-auto w-12 py-[0.1rem] mx-2 rounded-sm bg-item self-center" />
+          <nav className="flex-1 px-2 space-y-2 overflow-x-visible w-sidebar-mini bg-background pointer-events-auto">
+            {navigation.map((item) => (
+              <SidebarIcon
+                key={item.title}
+                title={item.title}
+                icon={item.image}
+                link={item.link}
+              />
+            ))}
+          </nav>
         </div>
       </div>
       {/* Page content */}
-      <div className="flex flex-col relative top-[40px] h-[calc(100vh-40px)] pl-16 z-0 bg-background">
-        <main className="flex-1 overflow-y-auto bg-background-secondary text-white pt-22 items-start rounded-tl-[2rem]">
+      <div className="flex flex-col relative top-[var(--fallback-title-bar-height)] h-[calc(100vh-var(--fallback-title-bar-height))] pl-sidebar-mini z-0 bg-background">
+        <main className="flex-1 overflow-y-auto bg-background-secondary text-white pt-22 items-start rounded-tl-md">
           <div className="w-full mx-auto p-4 sm:p-6 md:p-8 h-full">
             {children}
           </div>

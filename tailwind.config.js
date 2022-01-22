@@ -55,7 +55,8 @@ module.exports = {
       },
       spacing: {
         '32px': '32px',
-        sidebar: '20rem',
+        'sidebar-full': '20rem',
+        'sidebar-mini': '4rem',
       },
       backgroundImage: {
         'emblem-pattern': 'url(/images/logo/full.png)',
