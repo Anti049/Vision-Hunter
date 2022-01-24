@@ -9,7 +9,10 @@
 
 @layer components {
   .sidebar {
-    @apply no-scrollbar select-none flex flex-1 flex-col overflow-y-auto overflow-x-visible fixed top-[var(--fallback-title-bar-height)] left-0 h-[calc(100vh-var(--fallback-title-bar-height))] w-sidebar-full m-0 z-10 pb-2 text-white;
+    @apply no-scrollbar select-none flex flex-1 flex-col
+      overflow-y-auto overflow-x-visible fixed top-[var(--fallback-title-bar-height)]
+      left-0 h-[calc(100vh-var(--fallback-title-bar-height))] w-sidebar-full
+      m-0 z-10 pb-2 text-white pointer-events-none;
   }
   .mini-sidebar {
     @apply w-sidebar-mini;
@@ -27,6 +30,17 @@
   /* .has-tooltip:hover .tooltip {
     @apply z-50 absolute scale-100 transition-all opacity-100 ease-linear px-4 py-2 origin-left;
   } */
+  .channel-button {
+    @apply relative flex items-center justify-center
+    w-12 h-12 my-2 mx-auto shadow-lg;
+  }
+  .channel-icon {
+    @apply bg-item p-1 rounded-3xl w-full h-full;
+  }
+  .channel-tooltip {
+    /* @apply absolute scale-0 transition-all opacity-0 overflow-x-clip origin-left w-min whitespace-nowrap shadow-lg; */
+    @apply absolute w-auto p-2 px-4 m-2 min-w-max left-14 rounded-md shadow-md text-white whitespace-nowrap transition-all duration-100 opacity-0 pointer-events-none;
+  }
 }
 
 @layer utilities {

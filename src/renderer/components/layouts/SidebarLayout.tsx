@@ -1,7 +1,7 @@
 /* eslint-disable import/no-dynamic-require */
 // React imports
 import { FC, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { ipcRenderer } from 'electron';
 // Asset imports
 import HomeImage from '@assets/images/navigation/home.png';
@@ -15,7 +15,10 @@ import SettingsImage from '@assets/images/navigation/settings.png';
 import PaimonImage from '@assets/images/paimon.png';
 // Library imports
 import mergeClassNames from '@lib/utilities';
+// Component imports
 import TitleBar from '@components/utilities/TitleBar';
+import Badge from '@components/utilities/Badge';
+import Channel from '@components/layouts/Channel';
 
 // Prop definitions
 type Props = {
@@ -31,6 +34,7 @@ const SidebarIcon = ({
   icon: string;
   link: string;
 }) => {
+  const active = useLocation().pathname === link;
   return (
     <NavLink
       to={link}
@@ -103,16 +107,12 @@ const SidebarLayout: FC<React.ReactElement> = ({ children }) => {
       <div className="sidebar">
         <div className="mini-sidebar">
           <div className="pt-0 p-2 pb-0 z-10 bottom-0 w-sidebar-mini pointer-events-auto">
-            <SidebarIcon
-              title="My Profile"
-              icon={PaimonImage}
-              link="/profile"
-            />
+            <Channel title="My Profile" icon={PaimonImage} link="/profile" />
           </div>
           <div className="h-auto w-12 py-[0.1rem] mx-2 rounded-sm bg-item self-center" />
           <nav className="flex-1 px-2 space-y-2 overflow-x-visible w-sidebar-mini bg-background pointer-events-auto">
             {navigation.map((item) => (
-              <SidebarIcon
+              <Channel
                 key={item.title}
                 title={item.title}
                 icon={item.image}
